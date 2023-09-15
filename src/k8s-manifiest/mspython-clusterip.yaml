@@ -3,8 +3,8 @@ kind: Service
 metadata:
   labels:
     app: svc-mspython
-  name: svc-mspython
-  namespace: develop
+  name: dev-svc-mspython
+  namespace: default
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -15,7 +15,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: mspython
+    app: dev-mspython
   sessionAffinity: None
   type: ClusterIP
 status:
