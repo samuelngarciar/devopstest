@@ -2,7 +2,7 @@ pipeline {
 
  agent any
     stages {
-        stage("build image") {
+        stage("Build-docker-img") {
             steps {
                 script {
                     sh "cd src/python; sudo podman build -t test/program:latest ."
@@ -10,7 +10,7 @@ pipeline {
             }
         }
         
-         stage("login dockerhub") {
+         stage("Login-Registry-Dockerhub") {
             steps {
             
                      withCredentials([usernamePassword(credentialsId: 'DOCKERHUBID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
@@ -24,7 +24,7 @@ pipeline {
         }
         
         
-         stage("push is dockerhub") {
+         stage("Push-Docker-img") {
             steps {
                 script {
                     sh "cd src/python; sudo podman images; sudo podman push localhost/test/program:latest samys288/mypython:latest"
@@ -33,11 +33,21 @@ pipeline {
             }
         }
 
-             stage("deploy in k3s") {
+             stage("Deploy-on-k3s") {
             steps {
                 script {
-                    sh "sudo /usr/local/bin/k3s kubectl delete -f src/k8s-manifiest/mspython-deploy.yaml; sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-deploy.yaml"
+                    sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-deploy.yaml"
                     sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-clusterip.yaml"
+                }
+            }
+        }
+
+
+      stage("Testing-svc-clusterip") {
+            steps {
+                script {
+                    sh "  curl http://$( kubectl get svc svc-mspython -o jsonpath='{.spec.clusterIP}' ):$( kubectl get svc svc-mspython -o jsonpath='{.spec.ports[0].port}' )/"
+                    
                 }
             }
         }
