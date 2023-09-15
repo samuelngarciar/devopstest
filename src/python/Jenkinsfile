@@ -27,7 +27,7 @@ pipeline {
          stage("push is dockerhub") {
             steps {
                 script {
-                    sh "cd src/python; sudo podman push localhost/test/program:latest samys288/mypython:latest"
+                    sh "cd src/python; sudo podman images; sudo podman push localhost/test/program:latest samys288/mypython:latest"
                 
                 }
             }
