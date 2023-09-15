@@ -8,4 +8,4 @@ Resultado OK de la rama: develop
 
 Solo la rama main despliega el terraform foundational del cluster, adicional ambas ramas despliegan microservicios, se dividen por nombres todos en el namespace default
 
-Adicional las imagenes docker generada, se almacenan en registry de Dockerhub
+Adicional las imagenes docker generadas, se almacenan en registry de Dockerhub
