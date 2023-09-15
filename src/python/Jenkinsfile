@@ -5,7 +5,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh "sudo podman build -t test/program:latest ."
+                    sh "cd src/python; sudo podman build -t test/program:latest ."
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
          stage("push in dockerhub") {
             steps {
                 script {
-                    sh "sudo podman push localhost/test/program:latest samys288/mypython:latest"
+                    sh "cd src/python; sudo podman push localhost/test/program:latest samys288/mypython:latest"
                 }
             }
         }
