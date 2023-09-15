@@ -36,7 +36,7 @@ pipeline {
              stage("deploy in k3s") {
             steps {
                 script {
-                    sh "sudo kubectl create deployment mspython --image=samys288/mypython:latest"
+                    sh "kubectl create deployment mspython --image=samys288/mypython:latest"
                     sh "sudo kubectl expose deployment mspython --port=9191 --target-port=8080 --type=ClusterIP"
                 }
             }
