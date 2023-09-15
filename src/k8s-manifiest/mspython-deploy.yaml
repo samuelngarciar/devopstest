@@ -28,7 +28,7 @@ spec:
       containers:
       - image: samys288/mypython:latest
         imagePullPolicy: Always
-        name: mypython
+        name: dev-mspython
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
