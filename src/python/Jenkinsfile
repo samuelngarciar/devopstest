@@ -46,7 +46,7 @@ pipeline {
       stage("Testing-svc-clusterip") {
             steps {
                 script {
-                    sh "  curl http://$( kubectl get svc svc-mspython -o jsonpath='{.spec.clusterIP}' ):$( kubectl get svc svc-mspython -o jsonpath='{.spec.ports[0].port}' )/"
+                    sh "NAMESVC=svc-mspython;  curl http://$( kubectl get svc $NAMESVC -o jsonpath='{.spec.clusterIP}' ):$( kubectl get svc $NAMESVC -o jsonpath='{.spec.ports[0].port}' )/"
                     
                 }
             }
