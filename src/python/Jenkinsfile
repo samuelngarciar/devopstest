@@ -36,7 +36,7 @@ pipeline {
              stage("Deploy-on-k3s") {
             steps {
                 script {
-                     sh "sudo command -v k3s >/dev/null 2>&1 && echo 'k3s installed ok' || sleep 200"
+                     sh "sudo command -v k3s >/dev/null 2>&1 && echo 'k3s installed ok' || sleep 180"
                      sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/"
                      sh "sudo /usr/local/bin/k3s kubectl rollout restart deployment/dev-mspython"
                 }
