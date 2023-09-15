@@ -36,7 +36,7 @@ pipeline {
              stage("Deploy-on-k3s") {
             steps {
                 script {
-                    sh "NAMEDEPLOY=mspython; sudo /usr/local/bin/k3s kubectl get deployment \$NAMEDEPLOY &> /dev/null && $( sudo /usr/local/bin/k3s kubectl delete -f src/k8s-manifiest/mspython-deploy.yaml ) || echo 'First deploy';  sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-deploy.yaml"
+                    sh "NAMEDEPLOY=mspython; sudo /usr/local/bin/k3s kubectl get deployment \$NAMEDEPLOY &> /dev/null &&  \$( sudo /usr/local/bin/k3s kubectl delete -f src/k8s-manifiest/mspython-deploy.yaml ) || echo 'First deploy';  sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-deploy.yaml"
                     sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-clusterip.yaml"
                 }
             }
