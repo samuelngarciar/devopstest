@@ -36,7 +36,7 @@ pipeline {
              stage("deploy in k3s") {
             steps {
                 script {
-                    sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-deploy.yaml"
+                    sh "sudo /usr/local/bin/k3s kubectl delete -f src/k8s-manifiest/mspython-deploy.yaml; sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-deploy.yaml"
                     sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/mspython-clusterip.yaml"
                 }
             }
