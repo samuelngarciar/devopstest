@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: svc-mspython
-  name: mspython
+  name: svc-mspython
   namespace: default
 spec:
   internalTrafficPolicy: Cluster
