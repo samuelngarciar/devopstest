@@ -4,7 +4,7 @@ metadata:
   labels:
     app: svc-mspython
   name: svc-mspython
-  namespace: default
+  namespace: develop
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
