@@ -10,23 +10,30 @@ pipeline {
             }
         }
         
-         stage("push in dockerhub") {
+         stage("login dockerhub") {
             steps {
             
                      withCredentials([usernamePassword(credentialsId: 'DOCKERHUBID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     sh '''
-                        podman login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-
-                        
+                        podman login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD                        
                     '''
 
-                    sh "cd src/python; sudo podman push localhost/test/program:latest samys288/mypython:latest"
+                   
                 }
             }
         }
         
         
-         stage("deploy in k3s") {
+         stage("push is dockerhub") {
+            steps {
+                script {
+                    sh "cd src/python; sudo podman push localhost/test/program:latest samys288/mypython:latest"
+                
+                }
+            }
+        }
+
+             stage("deploy in k3s") {
             steps {
                 script {
                     sh "sudo kubectl create deployment mspython --image=samys288/mypython:latest"
@@ -34,5 +41,7 @@ pipeline {
                 }
             }
         }
+
+     
     }
 }
