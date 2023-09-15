@@ -4,9 +4,9 @@ metadata:
   annotations:
   generation: 1
   labels:
-    app: mspython
-  name: mspython
-  namespace: develop
+    app: dev-mspython
+  name: dev-mspython
+  namespace: default
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
