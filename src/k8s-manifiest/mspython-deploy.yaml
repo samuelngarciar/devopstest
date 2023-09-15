@@ -13,7 +13,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: mspython
+      app: dev-mspython
   strategy:
     rollingUpdate:
       maxSurge: 25%
