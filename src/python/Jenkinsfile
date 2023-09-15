@@ -15,7 +15,7 @@ pipeline {
             
                      withCredentials([usernamePassword(credentialsId: 'DOCKERHUBID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     sh '''
-                        docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+                        podman login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
 
                         
                     '''
