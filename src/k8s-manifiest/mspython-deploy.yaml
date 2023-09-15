@@ -23,7 +23,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: mspython
+        app: dev-mspython
     spec:
       containers:
       - image: samys288/mypython:latest
