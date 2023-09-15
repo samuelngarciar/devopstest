@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'microservice devopstest -4'
+    return 'microservice devopstest go'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
