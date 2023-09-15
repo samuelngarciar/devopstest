@@ -1,17 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2023-09-15T04:12:22Z"
   labels:
-    app: mspython
+    app: svc-mspython
   name: mspython
   namespace: default
-  resourceVersion: "978"
-  uid: 0df2b088-fd10-44c0-b97f-b0fad38fc3b6
 spec:
-  clusterIP: 10.43.143.241
-  clusterIPs:
-  - 10.43.143.241
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
