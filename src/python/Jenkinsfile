@@ -15,8 +15,7 @@ pipeline {
             
                      withCredentials([usernamePassword(credentialsId: 'DOCKERHUBID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     sh '''
-                        sudo su -
-                        podman login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD docker.io                      
+                        sudo podman login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD docker.io                      
                     '''
 
                    
@@ -28,7 +27,7 @@ pipeline {
          stage("push is dockerhub") {
             steps {
                 script {
-                    sh "cd src/python; sudo podman images; podman push localhost/test/program:latest samys288/mypython:latest"
+                    sh "cd src/python; sudo podman images; sudo podman push localhost/test/program:latest samys288/mypython:latest"
                 
                 }
             }
