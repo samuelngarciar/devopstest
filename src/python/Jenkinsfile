@@ -16,9 +16,11 @@ pipeline {
                      withCredentials([usernamePassword(credentialsId: 'DOCKERHUBID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                     sh '''
                         docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+
+                        cd src/python; sudo podman push localhost/test/program:latest samys288/mypython:latest
                     '''
-                    sh "cd src/python; sudo podman push localhost/test/program:latest samys288/mypython:latest"
-            
+                
+                }
             }
         }
         
