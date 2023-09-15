@@ -8,6 +8,9 @@ pipeline {
                 script {
                     sh '''
                      cd src/terraform/k3s/
+                     terraform init
+                     terraform plan
+                     terraform apply -auto-approve
                     '''
                 }
             }
