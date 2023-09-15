@@ -51,6 +51,7 @@ pipeline {
             steps {
                 script {
                     sh "sudo /usr/local/bin/k3s kubectl apply -f src/k8s-manifiest/"
+                    sh "sudo /usr/local/bin/k3s kubectl rollout restart deployment/mspython"
                 
                 }
             }
