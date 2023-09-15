@@ -5,7 +5,8 @@ Resultado OK de la rama: main
 
 
 Resultado OK de la rama: develop
-![image](https://github.com/samuelngarciar/devopstest/assets/84947793/c79dede0-584d-45f5-b1fd-ef8124e57aa8)
+![image](https://github.com/samuelngarciar/devopstest/assets/84947793/5a7316c0-0bd8-48a6-acbd-3f86b62afdea)
+
 
 Solo la rama main despliega el terraform foundational del cluster, adicional ambas ramas despliegan microservicios, se dividen por nombres todos en el namespace default
 
