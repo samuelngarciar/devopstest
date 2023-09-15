@@ -7,5 +7,5 @@ Resultado OK de la rama: develop
 ![image](https://github.com/samuelngarciar/devopstest/assets/84947793/c79dede0-584d-45f5-b1fd-ef8124e57aa8)
 
 Solo la rama main despliega el terraform foundational del cluster, adicional ambas ramas despliegan microservicios, se dividen por nombres todos en el namespace default
-Adicional las imagenes docker generada, se almacenan en registry de Dockerhub
 
+Adicional las imagenes docker generada, se almacenan en registry de Dockerhub
